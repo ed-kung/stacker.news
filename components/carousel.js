@@ -121,12 +121,10 @@ export function CarouselProvider ({ children }) {
   }, [showModal, media.current])
 
   const addMedia = useCallback(({ src, originalSrc, rel }) => {
-    console.log('adding media to carousel', src)
     media.current.set(src, { src, originalSrc, rel, confirmed: false })
   }, [media.current])
 
   const confirmMedia = useCallback((src) => {
-    console.log('confirming media for carousel', src)
     const mediaItem = media.current.get(src)
     if (mediaItem) {
       mediaItem.confirmed = true
